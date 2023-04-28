@@ -1,0 +1,40 @@
+.header{
+    border: 2px solid red;
+    width: 100%;
+    background-color: rgba(17, 144, 212, 0.703);
+    .header__container{
+        border: 2px solid green;
+        min-width: 100%;
+        max-width: 1366px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left__section{
+            border: 2px solid red;
+            width: 300px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-left: 50px;
+        }
+        .right__section{
+            border: 2px solid red;
+            width: 300px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .img__holder{
+                border: 2px solid red;
+                background-color: rgb(143, 143, 142);
+                width: 50px;
+                height: 50px;
+                border-radius: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+        }
+    }
+}

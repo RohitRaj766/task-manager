@@ -1,0 +1,36 @@
+.card{
+    width: 383px;
+    height: 550px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    margin-left: 100px;
+    margin-top: 40px;
+    overflow-y: auto;
+    .heading__title{
+        margin-left: 20px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.884);
+        width: 340px;
+        p{
+            text-align: justify;
+        }
+    }
+        .task__holder{
+        padding: 10px;
+        border: 2px solid red;
+        overflow-x: hidden;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        }
+        .task__container{
+            margin: 5px 0px;
+            padding: 10px 5px;
+            font-size: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    
+}

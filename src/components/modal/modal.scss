@@ -1,0 +1,86 @@
+.modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background-color: rgba(9, 10, 10, 0.675);
+    .modal__container{
+        width: 508px;
+        height: 587px;
+        border-radius: 10px;
+        background-color: #fff;
+        .title__modal{
+            width: 465px;
+            margin-left: 20px;
+            margin-top: 10px;
+            border-bottom: 2px solid black;
+            span{
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 30px;
+                color: #000000;
+                margin-bottom: 5px;
+            }
+            span:nth-child(2){
+               float: right;
+               cursor: pointer;
+            }
+        }
+        .write__task{
+            margin-left: 20px;
+            p{
+                font-family: 'Helvetica';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 23px;
+                color: #000000;
+            }
+            textarea{
+                height: 80px;
+                width: 95%;
+                background-color:#E7E7E7;
+                opacity: 0.54;
+                border-radius: 5px;
+            }
+        }
+        .status__heading{
+            font-size: 20px;
+            margin-left: 20px;
+        }
+        .task__status{
+            display: flex;
+            justify-content: space-around;
+            .to__do{
+                display: flex;
+                justify-content:center;
+                align-items: center;
+                input[type="radio"][name="my-radio"] {
+                    background-color: grey;
+                  }
+                  
+                  input[type="radio"][name="my-radio"]:checked {
+                    background-color: blue;
+                  }
+                
+                span{
+                    margin-left: 10px;
+                }
+            }
+          
+        }
+        .due__date{
+            margin-left: 20px;
+        }
+        .button__box{
+            margin-left: 20px;
+            margin-top: 30px;
+        }
+    }
+}
