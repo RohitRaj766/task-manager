@@ -21,12 +21,10 @@ const Header = (props) => {
 
     const [openDropdown, setOpenDropdown] = useState(false);
     const [openModal, setOpenModal] = useState(SetShowModal);
-
     const handleClick = () => {
         SetShowModal(false);
         setOpenModal(true);
     }
-
 
     return (
         <div className='header'>

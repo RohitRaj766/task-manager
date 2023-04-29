@@ -156,3 +156,9 @@
         }
     }
 }
+
+@media screen and (max-width:500px) {
+    .divider{
+     display: none;
+    }
+}

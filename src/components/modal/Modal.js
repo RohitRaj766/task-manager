@@ -2,11 +2,9 @@ import React, { useState } from 'react'
 import "./modal.scss"
 
 const Modal = (props) => {
-    const {CloseModal, Distribute, GetData1, GetData2, GetData3, ModalToggler,tasks, onHide, show, ToggleTasks, DataFlag} = props;
+    const {CloseModal, Distribute, GetData1, GetData2, GetData3, ModalToggler,tasks, onHide, show, ToggleTasks, DataFlag, DataDFlag} = props;
     const [ButtonForTasks, setButtonForTasks] = useState();
     const [TaskText, setTaskText] = useState({});
-    
-    
     const handleInputChange = (event, keyToUpdate) => {
         const { value } = event.target;
         if(show){
@@ -18,31 +16,25 @@ const Modal = (props) => {
             }));
         }
       };
-    
     const handleClick = () =>{
         CloseModal(false);
     }
     const handleClose = () =>{
         onHide(false);
-        DataFlag(false)
-        console.log("handleClosecalled")
-    }
+        DataFlag(true)
 
+    }
     const UpdateTask = () => {
         DataFlag(true)
-        console.log("Update Task");
-      }
-      
+    }
      const DeleteTask =() =>{
-        
+        DataDFlag(false)
     }   
     const CreateTask = () => {
-        // Validation checks
         if (!TaskText.message || !ButtonForTasks || !TaskText.date) {
             alert('Please fill in all required fields marked with *');
             return;
         }
-        
         Distribute(ButtonForTasks);
         if (ButtonForTasks === 1) {
             GetData1(prevState => [...prevState, TaskText]);

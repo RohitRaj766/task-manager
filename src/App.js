@@ -5,20 +5,13 @@ import Subheader from './components/sub-header/Subheader';
 import Card from './components/card/Card';
 import { useState } from 'react';
 
-
 function App() {
-
-
   const [TaskList1, setTaskList1] = useState([])
   const [TaskList2, setTaskList2] = useState([])
   const [TaskList3, setTaskList3] = useState([])
   const [ModalHandler, setModalHandler] =  useState(false)
   const [ShowModal, setShowModal] = useState(false)
   const [DataDistribution, setDataDistribution] = useState("")
-
-  
-
-
 
   return (
     <div className="App">
@@ -48,8 +41,7 @@ function App() {
     TasksList = {TaskList3}
   />
 </div>
-
-    </div>
+</div>
   );
 }
 
