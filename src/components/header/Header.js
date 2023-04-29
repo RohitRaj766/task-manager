@@ -15,7 +15,8 @@ const Header = (props) => {
         GetData2,
         GetData3,
         ModalToggler,
-        SetShowModal
+        SetShowModal,
+        GrabDataFromCard
     } = props
 
     const [openDropdown, setOpenDropdown] = useState(false);
@@ -26,8 +27,6 @@ const Header = (props) => {
         setOpenModal(true);
     }
 
-    console.log(`${ModalToggler} in header`)
-    console.log(`${SetShowModal} in headeras`)
 
     return (
         <div className='header'>
@@ -73,6 +72,7 @@ const Header = (props) => {
                     GetData2={GetData2}
                     GetData3={GetData3}
                     ModalToggler={ModalToggler}
+                    GrabDataFromCard={GrabDataFromCard}
                 />
             }
         </div>

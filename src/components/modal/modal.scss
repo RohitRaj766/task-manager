@@ -3,6 +3,7 @@
     height: 100vh;
     position: fixed;
     top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,6 +86,12 @@
 
             }
         }
+        .button__container{
+         display: flex;    
+         justify-content: space-evenly;
+         align-items: center;
+         width: 480px;
+        }
         .button__box{
             margin-left: 20px;
             margin-top: 30px;
@@ -101,6 +108,34 @@
                 width: 230px;
                 height: 43px;
                 background-color: #219EBC;
+                border-radius: 10px;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+            .Update__task__btn{
+                border: none;
+                outline: none;
+                width: 230px;
+                height: 43px;
+                background-color: #219EBC;
+                border-radius: 10px;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+            .Delete__task__btn{
+                border: none;
+                outline: none;
+                width: 230px;
+                height: 43px;
+                background-color: #BC2121;
                 border-radius: 10px;
                 font-style: normal;
                 font-weight: 600;

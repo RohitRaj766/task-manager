@@ -16,9 +16,6 @@ function App() {
   const [ShowModal, setShowModal] = useState(false)
   const [DataDistribution, setDataDistribution] = useState("")
 
-
-console.log(`${TaskList1} tasklist APP`)
-
   
 
 

@@ -19,3 +19,18 @@
         color: #000000;
     }
 }
+
+@media screen and (max-width:640px) {
+    .sub__header{
+        flex-direction: column !important;
+        width: 100% !important;
+        margin-left: 0px !important;
+        .divider{
+         display: none !important;
+        }
+        .work__title{
+            font-weight: 500 !important;
+            font-size: 16px !important;
+        }
+    }
+}

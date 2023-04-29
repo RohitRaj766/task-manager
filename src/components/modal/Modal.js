@@ -2,26 +2,39 @@ import React, { useState } from 'react'
 import "./modal.scss"
 
 const Modal = (props) => {
-    const {CloseModal, Distribute, GetData1, GetData2, GetData3, ModalToggler,} = props;
+    const {CloseModal, Distribute, GetData1, GetData2, GetData3, ModalToggler,tasks, onHide, show, ToggleTasks, DataFlag} = props;
     const [ButtonForTasks, setButtonForTasks] = useState();
     const [TaskText, setTaskText] = useState({});
     
-    console.log(`${TaskText.message} message`);
     
     const handleInputChange = (event, keyToUpdate) => {
         const { value } = event.target;
-        
-        setTaskText((prevState) => ({
-          ...prevState,
-          [keyToUpdate]: value
-        }));
+        if(show){
+            ToggleTasks({[keyToUpdate]: value});
+        }else{
+            setTaskText((prevState) => ({
+              ...prevState,
+              [keyToUpdate]: value
+            }));
+        }
       };
     
     const handleClick = () =>{
         CloseModal(false);
     }
+    const handleClose = () =>{
+        onHide(false);
+        console.log("handleClosecalled")
+    }
 
+    const UpdateTask = () => {
+        DataFlag(true)
+        console.log("Update Task");
+      }
+      
+     const DeleteTask =() =>{
         
+    }   
     const CreateTask = () => {
         // Validation checks
         if (!TaskText.message || !ButtonForTasks || !TaskText.date) {
@@ -39,21 +52,20 @@ const Modal = (props) => {
         }
     };
      
-
-    console.log(TaskText); // check TaskText value
-    console.log(`${ModalToggler} in  modal`); // check TaskText value
-
+console.log(`${tasks && tasks.message} GrabDatafrom StoredData`)
   return (
     <div className='modal'>
         <div className="modal__container">
             <div className="title__modal">
-            <span> Create a Task for team</span> <span onClick={()=>{handleClick()}}>X</span>
+            <span> Create a Task for team</span> 
+            {show ? <span onClick={()=>{handleClose()}}>X</span> : <span onClick={()=>{handleClick()}}>X</span>} 
             </div>
             <div className="write__task">
                 <p> Add task description* </p>
-                <textarea type="text" placeholder='feed the task here' onChange={(event) => handleInputChange(event, 'message')}/>
-            </div>
-                <p className='status__heading'> Select Task Status*</p>
+                <textarea type="text" placeholder='feed the task guidelines and information' value={TaskText.message || tasks?.message} onChange={(event) => handleInputChange(event, 'message')}/>
+             </div>
+             { !show ? <>
+              <p className='status__heading'> Select Task Status*</p>
                   <div className="task__status">
                 <div className="to__do">
                 <input type="radio" name="my-radio" value="1" onClick={() => setButtonForTasks(1)}/>
@@ -66,23 +78,31 @@ const Modal = (props) => {
                     <input type="radio" name="my-radio" value="3" onClick={() => setButtonForTasks(3)} /> <span> Task done</span>
                 </div>
             </div>
-            <div className="due__date">
+             </>   : null
+            }
+        { !show ? <div className="due__date">
                 <p> Due date*</p>
                 <input type='date'  onChange={(event) => handleInputChange(event, 'date')} />
-            </div>
-            <div className="button__box">
+            </div> : null
+            }
             {
                 
-                ModalToggler ? 
-                <>
-                <button onClick={CreateTask}> Update</button> 
-                <button onClick={CreateTask}> Delete </button> 
-                </>
+                show ? 
+                <div className='button__container'>
+                <div className="button__box">
+                <button className='Update__task__btn'  onClick={UpdateTask}> Update</button> 
+                </div>
+                <div className="button__box">
+                <button className='Delete__task__btn' onClick={DeleteTask}> Delete </button> 
+                </div>
+                </div>
                 :
+                <div className="button__box">
                 <button className='create__task__btn' onClick={CreateTask}> Create task </button> 
+                </div>
             }
         
-            </div>
+           
         </div>
     </div>
   )
