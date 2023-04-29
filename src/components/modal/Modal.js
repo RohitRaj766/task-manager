@@ -24,6 +24,7 @@ const Modal = (props) => {
     }
     const handleClose = () =>{
         onHide(false);
+        DataFlag(false)
         console.log("handleClosecalled")
     }
 
