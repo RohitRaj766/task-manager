@@ -16,10 +16,10 @@
         .title__modal{
             width: 465px;
             margin-left: 20px;
-            margin-top: 10px;
+            margin-top: 30px;
             border-bottom: 2px solid black;
+            padding-bottom: 10px;
             span{
-                font-family: 'Montserrat';
                 font-style: normal;
                 font-weight: 600;
                 font-size: 25px;
@@ -35,7 +35,6 @@
         .write__task{
             margin-left: 20px;
             p{
-                font-family: 'Helvetica';
                 font-style: normal;
                 font-weight: 400;
                 font-size: 20px;
@@ -77,10 +76,39 @@
         }
         .due__date{
             margin-left: 20px;
+            input{
+                padding: 6px 8px;
+                cursor: pointer;
+                border-radius: 5px;
+                border: .5px solid rgba(128, 128, 128, 0.481);
+                outline: none;
+
+            }
         }
         .button__box{
             margin-left: 20px;
             margin-top: 30px;
+            border: none;
+            outline: none;
+            width: 230px;
+            height: 43px;
+            background-color: #219EBC;
+            border-radius: 10px;
+            cursor: pointer;
+            .create__task__btn{
+                border: none;
+                outline: none;
+                width: 230px;
+                height: 43px;
+                background-color: #219EBC;
+                border-radius: 10px;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
         }
     }
 }

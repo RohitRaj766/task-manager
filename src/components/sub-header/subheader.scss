@@ -1,8 +1,21 @@
 .sub__header{
-    border: 2px solid red;
-    width: 350px;
+    width: 530px;
     display: flex;
     margin-left: 100px;
     margin-top: 50px;
     justify-content: space-between;
+    align-items: center;
+    .divider{
+        height: 75px;
+        width: 1px;
+        background-color: #000000;
+        margin-left: 10px;
+    }
+    .work__title{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 30px;
+        color: #000000;
+    }
 }

@@ -1,12 +1,13 @@
 import React from 'react'
 import "./subheader.scss"
+import BigLogo from "../../assets/images/BigLogo.png"
 
 const Subheader = () => {
   return (
     <div className='sub__header'>
         <div className="img__container">
-            Img or logo
-        </div> |
+            <img src={BigLogo} alt="" />
+        </div> <span className='divider'></span>
         <div className="work__title">
         Website Development Tracker
         </div>

@@ -12,6 +12,8 @@ function App() {
   const [TaskList1, setTaskList1] = useState([])
   const [TaskList2, setTaskList2] = useState([])
   const [TaskList3, setTaskList3] = useState([])
+  const [ModalHandler, setModalHandler] =  useState(false)
+  const [ShowModal, setShowModal] = useState(false)
   const [DataDistribution, setDataDistribution] = useState("")
 
 
@@ -29,12 +31,16 @@ console.log(`${TaskList1} tasklist APP`)
     GetData1 = {setTaskList1}
     GetData2 = {setTaskList2}
     GetData3 = {setTaskList3}
+    ModalToggler = {ModalHandler}
+    SetShowModal = {setShowModal}
     />
     <Subheader />
     <div className="card__holder">
   <Card
     Heading={"Tasks To Do"}
     TasksList = {TaskList1}
+    ModalToggler = {setModalHandler}
+    ModalHan = {setShowModal}
   />
   <Card
     Heading={"In Progress"}

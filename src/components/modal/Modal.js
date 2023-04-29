@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import "./modal.scss"
 
 const Modal = (props) => {
-    const {CloseModal, Distribute, GetData1, GetData2, GetData3} = props;
-    const [ButtonForTasks, setButtonForTasks] = useState(1);
+    const {CloseModal, Distribute, GetData1, GetData2, GetData3, ModalToggler,} = props;
+    const [ButtonForTasks, setButtonForTasks] = useState();
     const [TaskText, setTaskText] = useState({});
     
     console.log(`${TaskText.message} message`);
     
     const handleInputChange = (event, keyToUpdate) => {
         const { value } = event.target;
+        
         setTaskText((prevState) => ({
           ...prevState,
           [keyToUpdate]: value
@@ -19,28 +20,34 @@ const Modal = (props) => {
     const handleClick = () =>{
         CloseModal(false);
     }
+
         
     const CreateTask = () => {
-        Distribute(ButtonForTasks)
-        if(ButtonForTasks === 1){
-            GetData1(prevState => [...prevState, TaskText])
+        // Validation checks
+        if (!TaskText.message || !ButtonForTasks || !TaskText.date) {
+            alert('Please fill in all required fields marked with *');
+            return;
         }
-        else if(ButtonForTasks === 2){
-            GetData2(prevState => [...prevState, TaskText])
+        
+        Distribute(ButtonForTasks);
+        if (ButtonForTasks === 1) {
+            GetData1(prevState => [...prevState, TaskText]);
+        } else if (ButtonForTasks === 2) {
+            GetData2(prevState => [...prevState, TaskText]);
+        } else if (ButtonForTasks === 3) {
+            GetData3(prevState => [...prevState, TaskText]);
         }
-        else if(ButtonForTasks === 3){
-            GetData3(prevState => [...prevState, TaskText])
-        }
-        console.log(ButtonForTasks)
-    }
-    
+    };
+     
+
     console.log(TaskText); // check TaskText value
+    console.log(`${ModalToggler} in  modal`); // check TaskText value
 
   return (
     <div className='modal'>
         <div className="modal__container">
             <div className="title__modal">
-            <span> Create a Task for team</span> <span onClick={handleClick}>X</span>
+            <span> Create a Task for team</span> <span onClick={()=>{handleClick()}}>X</span>
             </div>
             <div className="write__task">
                 <p> Add task description* </p>
@@ -64,10 +71,17 @@ const Modal = (props) => {
                 <input type='date'  onChange={(event) => handleInputChange(event, 'date')} />
             </div>
             <div className="button__box">
-            {<button onClick={CreateTask}> Create task </button>
-            // : ButtonForTasks === 2 ? <button > Update task </button> 
-            // : ButtonForTasks === 3 ? <button > Delete task </button> : null
-        }
+            {
+                
+                ModalToggler ? 
+                <>
+                <button onClick={CreateTask}> Update</button> 
+                <button onClick={CreateTask}> Delete </button> 
+                </>
+                :
+                <button className='create__task__btn' onClick={CreateTask}> Create task </button> 
+            }
+        
             </div>
         </div>
     </div>

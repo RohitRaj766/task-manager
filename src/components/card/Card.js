@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import "./card.scss"
 
 const Card = (props) => {
-  const{Heading, TasksList} = props;
+  const{Heading, TasksList, ModalToggler,setShowModal } = props;
   const[UpdateModal, setUpdateModal] = useState(false)
   console.log(TasksList.message +" hello world")
-  const colors = ['#FFC1C1', '#C1FFC1', '#C1C1FF', '#FFFFC1', '#C1FFFF'];
+  const colors = ['#FFD166', '#30B7E3', '#EF476F', '#06D6A0', '#F6D6B6','#E8A6B6'];
 
   const HandleModal = () => {
-    setUpdateModal(true)
+    // setUpdateModal(true)
+    // ModalToggler(UpdateModal)
+    // setShowModal(true)
   }
 
 
@@ -21,9 +23,9 @@ const Card = (props) => {
         {TasksList.map((tasks, index)=>{
           const color = colors[index % colors.length];
           return (
-            <div className="task__container" style={{ backgroundColor: color }} onClick={handleModal}>
-              {tasks.message} <br />
-              {tasks.date} 
+            <div className="task__container" style={{ backgroundColor: color }} onClick={HandleModal}>
+             <p>{tasks.message}</p>
+             <span className='date'>Due Date :</span>{`${tasks.date}`} 
             </div>
           )
         })}
