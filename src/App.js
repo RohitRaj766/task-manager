@@ -3,6 +3,7 @@ import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
 import Subheader from './components/sub-header/Subheader';
 import Card from './components/card/Card';
+import Home from './components/home/home.jsx'
 import { useState } from 'react';
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
     TasksList = {TaskList3}
   />
 </div>
+{/* <img src={Home} alt='home' style={{marginLeft:"200px", padding:"200px"}}/>
+ */}
+ <Home/>
 </div>
   );
 }
