@@ -51,7 +51,7 @@ console.log(`${tasks && tasks.message} GrabDatafrom StoredData`)
         <div className="modal__container">
             <div className="title__modal">
             <span> Create a Task for team</span> 
-            {show ? <span onClick={()=>{handleClose()}}>X</span> : <span onClick={()=>{handleClick()}}>X</span>} 
+            {show ? <span onClick={()=>{handleClose()}}> &times; </span> : <span onClick={()=>{handleClick()}}>&times;</span>} 
             </div>
             <div className="write__task">
                 <p> Add task description* </p>
