@@ -1,6 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
-export const UPDATE_TODO = 'UPDATE_TODO'; // New action type for updating a todo
+export const UPDATE_TODO = 'UPDATE_TODO'; 
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 
 export const addTodo = (id, text, date, status) => ({
@@ -13,7 +13,7 @@ export const deleteTodo = id => ({
   payload: id,
 });
 
-// Action creator for updating a todo
+
 export const updateTodo = (id, text, date, status) => ({
   type: UPDATE_TODO,
   payload: { id, text, date, status },
