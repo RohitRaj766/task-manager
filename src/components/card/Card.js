@@ -7,6 +7,7 @@ const Card = ({ Heading }) => {
   const { tasks, searchQuery } = useSelector(state => state);
   const [selectedTask, setSelectedTask] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const[closeUpModal,setcloseUpModal] = useState(false);
 
   const filteredTasks = searchQuery.length > 0 ? tasks.filter(task =>
     task.text.toLowerCase().includes(searchQuery.toLowerCase())
@@ -15,6 +16,7 @@ const Card = ({ Heading }) => {
   const handleModal = (task) => {
     setSelectedTask(task);
     setIsModalOpen(true);
+    setcloseUpModal(true);
   };
 
   return (
@@ -42,7 +44,8 @@ const Card = ({ Heading }) => {
       { isModalOpen && selectedTask &&  
         <Modal 
           cardData={selectedTask}
-          CloseModal={setIsModalOpen}  // Make sure to handle CloseModal correctly in the Modal component
+          CloseModal={setIsModalOpen}
+          closeUpModal={setcloseUpModal}
         /> 
       }
     </div>
