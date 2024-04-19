@@ -3,48 +3,30 @@ import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
 import Subheader from './components/sub-header/Subheader';
 import Card from './components/card/Card';
-import Home from './components/home/home.jsx'
-import { useState } from 'react';
+// import Home from './components/home/home.jsx'
+// import { useState } from 'react';
 
 function App() {
-  const [TaskList1, setTaskList1] = useState([])
-  const [TaskList2, setTaskList2] = useState([])
-  const [TaskList3, setTaskList3] = useState([])
-  const [ModalHandler, setModalHandler] =  useState(false)
-  const [ShowModal, setShowModal] = useState(false)
-  const [DataDistribution, setDataDistribution] = useState("")
 
   return (
     <div className="App">
     <Sidebar />
-    <Header 
-    Distribute = {setDataDistribution}
-    GetData1 = {setTaskList1}
-    GetData2 = {setTaskList2}
-    GetData3 = {setTaskList3}
-    ModalToggler = {ModalHandler}
-    SetShowModal = {setShowModal}
-    />
+    <Header/>
     <Subheader />
     <div className="card__holder">
   <Card
     Heading={"Tasks To Do"}
-    TasksList = {TaskList1}
-    ModalToggler = {setModalHandler}
-    ModalHan = {setShowModal}
   />
-  <Card
+   <Card
     Heading={"In Progress"}
-    TasksList = {TaskList2}
-  />
+  /> 
   <Card
     Heading={"Tasks Done"}
-    TasksList = {TaskList3}
-  />
+  /> 
 </div>
 {/* <img src={Home} alt='home' style={{marginLeft:"200px", padding:"200px"}}/>
  */}
- <Home/>
+ {/* <Home/> */}
 </div>
   );
 }

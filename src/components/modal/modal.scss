@@ -90,16 +90,17 @@
          display: flex;    
          justify-content: space-evenly;
          align-items: center;
-         width: 480px;
+         width: 100%;
+         margin-top: 30px;
         }
         .button__box{
-            margin-left: 20px;
-            margin-top: 30px;
+            display: flex;    
+            justify-content: space-evenly;
+            align-items: center;
             border: none;
             outline: none;
-            width: 230px;
+            width: 300px;
             height: 43px;
-            background-color: #219EBC;
             border-radius: 10px;
             cursor: pointer;
             .create__task__btn{
@@ -119,7 +120,7 @@
             .Update__task__btn{
                 border: none;
                 outline: none;
-                width: 230px;
+                width: 130px;
                 height: 43px;
                 background-color: #219EBC;
                 border-radius: 10px;
@@ -133,7 +134,7 @@
             .Delete__task__btn{
                 border: none;
                 outline: none;
-                width: 230px;
+                width: 130px;
                 height: 43px;
                 background-color: #BC2121;
                 border-radius: 10px;

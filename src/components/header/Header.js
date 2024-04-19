@@ -1,28 +1,24 @@
 import React, { useState } from 'react'
 import './header.scss'
+import { useDispatch } from 'react-redux';
+import { setSearchQuery } from '../../redux/actions';
 import Plus from "../../assets/images/plus.png"
 import Search from "../../assets/images/search.png"
 import Profile from "../../assets/images/profile.png"
 import ArrowDown from "../../assets/images/arrow-below.png"
 import Modal from '../modal/Modal'
 
-const Header = (props) => {
-    const {
-        ModalSubmit,
-        GetModalData,
-        Distribute,
-        GetData1,
-        GetData2,
-        GetData3,
-        ModalToggler,
-        SetShowModal,
-        GrabDataFromCard
-    } = props
+const Header = () => {
+    
+  const dispatch = useDispatch();
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
-    const [openDropdown, setOpenDropdown] = useState(false);
-    const [openModal, setOpenModal] = useState(SetShowModal);
+  const handleSearch = (event) => {
+    dispatch(setSearchQuery(event.target.value));
+    console.log("event.target.value ",event.target.value)
+  };
     const handleClick = () => {
-        SetShowModal(false);
         setOpenModal(true);
     }
 
@@ -38,7 +34,7 @@ const Header = (props) => {
                     </div>
                     <span className='divider'></span>
                     <div className="search__bar">
-                        <input type="text" placeholder='Search your query' /> <p className="search"> <img src={Search} alt="..." /></p>
+                        <input type="text" placeholder='Search your query' onChange={handleSearch} /> <p className="search"> <img src={Search} alt="..."  /></p>
                     </div>
                 </div>
                 <div className="right__section">
@@ -60,17 +56,9 @@ const Header = (props) => {
                     </div>
                 </div>
             </div>
-            {(openModal || ModalToggler) &&
+            {(openModal) &&
                 <Modal
                     CloseModal={setOpenModal}
-                    ModalSubmit={ModalSubmit}
-                    GetModalData={GetModalData}
-                    Distribute={Distribute}
-                    GetData1={GetData1}
-                    GetData2={GetData2}
-                    GetData3={GetData3}
-                    ModalToggler={ModalToggler}
-                    GrabDataFromCard={GrabDataFromCard}
                 />
             }
         </div>
