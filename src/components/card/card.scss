@@ -19,10 +19,12 @@
         .task__holder{
         height: 460px;
         width: auto;
+        top:0;
         padding: 10px;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
+
 
         button{
             cursor: pointer;
