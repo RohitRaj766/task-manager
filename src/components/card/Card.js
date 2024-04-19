@@ -7,7 +7,8 @@ const Card = ({ Heading }) => {
   const { tasks, searchQuery } = useSelector(state => state);
   const [selectedTask, setSelectedTask] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const taskHolderRef = useRef(null);  // Ref for the task holder div
+  const taskHolderRef = useRef(null); 
+  const[closeUpModal , setcloseUpModal] = useState(false);
 
   const filteredTasks = searchQuery.length > 0 ? tasks.filter(task =>
     task.text.toLowerCase().includes(searchQuery.toLowerCase())
@@ -23,8 +24,6 @@ const Card = ({ Heading }) => {
       taskHolderRef.current.scrollTop = taskHolderRef.current.scrollHeight;
     }
   }, [filteredTasks]);
-  
-  
   
 
   return (
@@ -53,6 +52,7 @@ const Card = ({ Heading }) => {
         <Modal 
           cardData={selectedTask}
           CloseModal={setIsModalOpen}
+          closeUpModal={setcloseUpModal}
         /> 
       }
     </div>
