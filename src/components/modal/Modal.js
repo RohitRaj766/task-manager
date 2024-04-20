@@ -73,34 +73,6 @@ const Modal = (props) => {
           />
         </div>
         {!closeUpModal && (
-          <>
-            <p className='status__heading'>Select Task Status*</p>
-            <div className="task__status">
-              <div className="to__do">
-                <input
-                  type="radio"
-                  name="my-radio"
-                  value="1"
-                />
-                <span>To do</span>
-              </div>
-              <div className="in__progress">
-                <input
-                  type="radio"
-                  name="my-radio"
-                  value="2"
-                />
-                <span>In progress</span>
-              </div>
-              <div className="tasks__done">
-                <input
-                  type="radio"
-                  name="my-radio"
-                  value="3"
-                />
-                <span>Task done</span>
-              </div>
-            </div>
             <div className="due__date">
               <p>Due date*</p>
               <input
@@ -109,7 +81,6 @@ const Modal = (props) => {
                 onChange={(event) => handleInputChange(event, 'date')}
               />
             </div>
-          </>
         )}
         <div className='button__container'>
           <div className="button__box">
