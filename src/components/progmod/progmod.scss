@@ -1,0 +1,34 @@
+.prog__item__container{
+    width: 90%;
+    margin: auto;
+    height: 360px;
+    overflow-y: auto;
+    .prog__item__list{
+        margin-top: 20px;
+        background-color: aliceblue;
+        border-radius: 10px;
+        label{
+        // height: max-content;
+         margin-bottom: 5px;
+        font-size: 12;
+        :nth-child(1){
+            font-size: 12px; 
+        // /    margin-left: 12;
+        text-align: justify;
+        width: 90%;
+        margin: auto;
+        margin-top: -19px;
+        color:rgba(34, 33, 33, 0.932);
+        }
+        :nth-child(2){
+            margin-left: 20px;
+            font-size: 10px;
+            font-weight: bolder;
+            color: #d89906;
+            padding: 5px;
+            border-radius: 10px;
+            margin-bottom: -14px;
+        }
+      }
+    }
+}

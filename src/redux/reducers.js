@@ -1,8 +1,10 @@
-import { ADD_TODO, DELETE_TODO, UPDATE_TODO, SET_SEARCH_QUERY } from './actions';
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO, SET_SEARCH_QUERY, IN_PROGRESS, COMPLETED } from './actions';
 
 const initialState = {
     tasks: [],
-    searchQuery: ''
+    searchQuery: '',
+    inProgress:[],
+    completed:[]
 };
 
 const todosReducer = (state = initialState, action) => {
@@ -31,6 +33,16 @@ const todosReducer = (state = initialState, action) => {
                 ...state,
                 searchQuery: action.payload
             };
+            case IN_PROGRESS:
+                console.log("IN_PROGRESS action payload:", action.payload);
+                return {
+                    ...state,
+                    inProgress: action.payload,
+                    tasks: state.tasks.map(task => 
+                        action.payload.includes(task.id) ? { ...task, status: 'IN_PROGRESS' } : task
+                    )
+                };
+            
         default:
             return state;
     }
