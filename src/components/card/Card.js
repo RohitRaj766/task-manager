@@ -13,6 +13,7 @@ const Card = ({ Heading }) => {
   const filteredTasks = searchQuery.length > 0 ? tasks.filter(task =>
     task.text.toLowerCase().includes(searchQuery.toLowerCase())
   ) : tasks;
+  console.log("closupmodal", closeUpModal)
 
   const handleModal = (task) => {
     setSelectedTask(task);
