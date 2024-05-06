@@ -1,84 +1,106 @@
-import React from 'react';
-import './progmod.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { inProgress } from '../../redux/actions';
+import React, { useState, useEffect } from "react";
+import "./progmod.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { inProgress, deleteTodo as removeTask } from "../../redux/actions";
 
 const Progmod = ({ progModal }) => {
-    const tasklist = useSelector(state => state);
-    console.log("tsklist ", tasklist);
+  const tasklist = useSelector((state) => state.tasks);
+  const inprogr = useSelector((state) => state.inProgress);
+  const dispatch = useDispatch();
+  const [selectedTasks, setSelectedTasks] = useState([]);
 
-    const dispatch = useDispatch();
-   
-    const [selectedTasks, setSelectedTasks] = useState(new Set());
+  useEffect(() => {
+    tasklist.forEach((task) => {
+      if (inprogr.some((item) => item.id === task.id)) {
+        console.log("Task already in progress:", task);
+      }
+    });
+  }, [inprogr, tasklist]);
 
-    const handleCheckboxChange = (event) => {
-        const taskId = event.target.value;
-        console.log('Task ID:', taskId); // Debug log to check the taskId
-        setSelectedTasks(prev => {
-            const newSet = new Set(prev);
-            if (newSet.has(taskId)) {
-                newSet.delete(taskId);
-            } else {
-                newSet.add(taskId);
-            }
-            console.log('Selected tasks:', Array.from(newSet)); // Debug log to check selected tasks
-            return newSet;
-        });
-    };
+  const handleCheckboxChange = (event) => {
+    const task = JSON.parse(event.target.value);
+    const isChecked = event.target.checked;
 
-    const handleProgmod = () => {
-        progModal(false);
-    };
+    if (isChecked && inprogr.some((item) => item.id === task.id)) {
+      return;
+    }
 
-    const handleSaveInProgress = () => {
-        const selectedTaskIds = Array.from(selectedTasks); // Convert Set to array
-        console.log('Saving In-Progress Tasks:', selectedTaskIds);
-        dispatch(inProgress(selectedTaskIds)); // Dispatch the correct payload
-        console.log('Saved In-Progress Tasks');
-        progModal(false);
-    };
+    setSelectedTasks((prevSelectedTasks) => {
+      if (
+        isChecked &&
+        !prevSelectedTasks.some((selectedTask) => selectedTask.id === task.id)
+      ) {
+        return [...prevSelectedTasks, task];
+      }
+      if (!isChecked) {
+        return prevSelectedTasks.filter(
+          (selectedTask) => selectedTask.id !== task.id
+        );
+      }
+      return prevSelectedTasks;
+    });
+  };
 
-    return (
-        <div className='modal'>
-            <div className="modal__container">
-                <div className="title__modal">
-                    <span>In Progress</span>
-                    <span onClick={handleProgmod}>&times;</span>
-                </div>
-                <div className="write__task">
-                    <p>Select In progress tasks</p>
-                </div>
-                <div>
-                    {tasklist && (
-                        <div className='prog__item__container'>
-                            {tasklist.tasks.map((item) => (
-                                <div key={item.id} className='prog__item__list'>
-                                    <input 
-                                        type="checkbox" 
-                                        id={`checkbox-${item.id}`} 
-                                        name="taskCheckbox" 
-                                        value={item.id} 
-                                        onChange={handleCheckboxChange}
-                                        checked={selectedTasks.has(item.id)}
-                                    />
-                                    <label htmlFor={`checkbox-${item.id}`}> 
-                                        <p>{item.text}</p> 
-                                        <p>Date : {item.date}</p>
-                                    </label>
-                                </div>
-                            ))}
-                        </div>
-                    )}
-                </div>
-                <div className='button__container'>
-                    <div className="button__box">
-                        <button className='create__task__btn' onClick={handleSaveInProgress}>Add In progress</button>
-                    </div>
-                </div>
-            </div>
+  const handleProgmod = () => {
+    progModal(false);
+  };
+
+  const handleSaveInProgress = () => {
+    dispatch(inProgress(selectedTasks));
+    selectedTasks.forEach((item) => {
+      dispatch(removeTask(item.id));
+    });
+    console.log("hello world :: ", selectedTasks.id);
+    progModal(false);
+  };
+
+  return (
+    <div className="modal">
+      <div className="modal__container">
+        <div className="title__modal">
+          <span>In Progress</span>
+          <span onClick={handleProgmod}>&times;</span>
         </div>
-    );
-}
+        <div className="write__task">
+          <p>Select In progress tasks</p>
+        </div>
+        <div>
+          {tasklist && (
+            <div className="prog__item__container">
+              {tasklist.map((item) => (
+                <div key={item.id} className="prog__item__list">
+                  <input
+                    type="checkbox"
+                    id={`checkbox-${item.id}`}
+                    name="taskCheckbox"
+                    value={JSON.stringify(item)}
+                    onChange={handleCheckboxChange}
+                    checked={selectedTasks.some(
+                      (selectedTask) => selectedTask.id === item.id
+                    )}
+                  />
+                  <label htmlFor={`checkbox-${item.id}`}>
+                    <p>{item.text}</p>
+                    <p>Date : {item.date}</p>
+                  </label>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="button__container">
+          <div className="button__box">
+            <button
+              className="create__task__btn"
+              onClick={handleSaveInProgress}
+            >
+              Add In progress
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Progmod;

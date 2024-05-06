@@ -37,10 +37,7 @@ const todosReducer = (state = initialState, action) => {
                 console.log("IN_PROGRESS action payload:", action.payload);
                 return {
                     ...state,
-                    inProgress: action.payload,
-                    tasks: state.tasks.map(task => 
-                        action.payload.includes(task.id) ? { ...task, status: 'IN_PROGRESS' } : task
-                    )
+                    inProgress: [...state.inProgress, ...action.payload],
                 };
             
         default:

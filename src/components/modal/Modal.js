@@ -8,7 +8,7 @@ const Modal = (props) => {
 
   const { CloseModal, cardData, closeUpModal, ToggleTasks, show } = props;
   const [TaskText, setTaskText] = useState({
-    message: cardData?.text || '',
+    message: cardData? cardData.text : '',
     date: cardData?.date || '',
   });
 
@@ -55,7 +55,6 @@ const Modal = (props) => {
     }
     dispatch(addTodo(Date.now(), TaskText.message, TaskText.date));
   };
-
   return (
     <div className='modal'>
       <div className="modal__container">
