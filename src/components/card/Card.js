@@ -145,6 +145,7 @@ const Card = ({ Heading }) => {
           cardData={selectedTask}
           CloseModal={setIsModalOpen}
           closeUpModal={setCloseUpModal}
+          close={closeUpModal}
         />
       )}
       {isProgModalOpen && (

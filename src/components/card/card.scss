@@ -21,10 +21,12 @@
         // border: 2px solid red;
         p{
             margin-left: 20px;
-            width:fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
             text-align: left;
             font-size: 18px;
             margin-top: 15px;
+            letter-spacing: 2px;
         }
         button{
             margin-right: 15px;
