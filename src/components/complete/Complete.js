@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import "./Complete.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { completed, inProgress, removeTasks } from "../../redux/actions";
+import { completed, removeTasks } from "../../redux/actions";
 
 const Complete = ({ compModal }) => {
   const tasklist = useSelector((state) => state.inProgress);

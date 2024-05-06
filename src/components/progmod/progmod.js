@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./progmod.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { inProgress, deleteTodo } from "../../redux/actions";
