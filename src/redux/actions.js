@@ -4,7 +4,7 @@ export const UPDATE_TODO = 'UPDATE_TODO';
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 export const IN_PROGRESS = "IN_PROGRESS";
 export const COMPLETED  = "COMPLETED";
-// export const Remove_Tasks = "Remove_Tasks"
+export const REMOVE_TASKS = "REMOVE_TASKS"
 
 export const addTodo = (id, text, date, status) => ({
   type: ADD_TODO,
@@ -31,11 +31,12 @@ export const inProgress = (task ) => ({
   payload: task
 });
 
-export const completed = (id, text, date, status ) => ({
+export const completed = (task) => ({
   type: COMPLETED,
-  payload: { id, text, date, status }
+  payload: task
 });
 
-// export const removeTasks = ( ) => ({
-
-// })
+export const removeTasks = (id) => ({
+  type: REMOVE_TASKS,
+  payload: id,
+})

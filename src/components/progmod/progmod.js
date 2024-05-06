@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./progmod.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { inProgress, deleteTodo as removeTask } from "../../redux/actions";
+import { inProgress, deleteTodo } from "../../redux/actions";
 
 const Progmod = ({ progModal }) => {
   const tasklist = useSelector((state) => state.tasks);
   const inprogr = useSelector((state) => state.inProgress);
   const dispatch = useDispatch();
   const [selectedTasks, setSelectedTasks] = useState([]);
-
-  useEffect(() => {
-    tasklist.forEach((task) => {
-      if (inprogr.some((item) => item.id === task.id)) {
-        console.log("Task already in progress:", task);
-      }
-    });
-  }, [inprogr, tasklist]);
 
   const handleCheckboxChange = (event) => {
     const task = JSON.parse(event.target.value);
@@ -48,9 +40,8 @@ const Progmod = ({ progModal }) => {
   const handleSaveInProgress = () => {
     dispatch(inProgress(selectedTasks));
     selectedTasks.forEach((item) => {
-      dispatch(removeTask(item.id));
+      dispatch(deleteTodo(item.id));
     });
-    console.log("hello world :: ", selectedTasks.id);
     progModal(false);
   };
 
