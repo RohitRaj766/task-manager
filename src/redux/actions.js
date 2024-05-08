@@ -26,7 +26,7 @@ export const setSearchQuery = query => ({
   payload: query,
 });
 
-export const inProgress = (task ) => ({
+export const inProgress = (task) => ({
   type: IN_PROGRESS,
   payload: task
 });

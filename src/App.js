@@ -1,21 +1,25 @@
-import "./App.css";
-import Header from "./components/header/Header";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/sidebar/Sidebar";
-import Subheader from "./components/sub-header/Subheader";
-import Card from "./components/card/Card";
-
+import Home from "./components/views/home";
+import Works from "./components/views/works";
+import About from "./components/views/about";
+import "./App.css";
+// import './components/views'
 function App() {
   return (
-    <div className="App">
-      <Sidebar />
-      <Header />
-      <Subheader />
-      <div className="card__holder">
-        <Card Heading={"Tasks To Do"} />
-        <Card Heading={"In Progress"} />
-        <Card Heading={"Tasks Done"} />
+    <BrowserRouter>
+      <div className="App">
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/works" element={<Works />} />
+          {/* Define other routes here as needed */}
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
