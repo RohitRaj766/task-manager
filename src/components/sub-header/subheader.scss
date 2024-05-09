@@ -22,6 +22,12 @@
     }
 }
 
+@media screen and (max-width:1000px) {
+    .sub__header{
+        margin-top: 140px;
+    }
+}
+
 @media screen and (max-width:800px) {
     .sub__header{
         flex-direction: column !important;
