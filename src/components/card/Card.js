@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import Modal from "../modal/Modal";
 import ProgMod from "../progmod/progmod";
-import "./card.scss";
 import { useSelector } from "react-redux";
 import Comple from "../complete/Complete";
+import "./card.scss";
 
 const Card = ({ Heading }) => {
   const { tasks, searchQuery, inProgress, completedStore } = useSelector(
@@ -35,10 +35,13 @@ const Card = ({ Heading }) => {
 
   const handleProgModal = () => {
     setIsProgModalOpen(true);
+    console.log("hariram krishna")
   };
 
   const handleCompModal = () => {
     setIsCompModalOpen(true);
+    console.log("amcha bhi khul gya")
+
   };
 
   useEffect(() => {
