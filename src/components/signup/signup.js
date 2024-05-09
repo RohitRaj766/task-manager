@@ -1,6 +1,7 @@
 import React from 'react'
-
-function Signup() {
+import { useNavigate } from 'react-router-dom'
+const  Signup = (props) => {
+    const navigate = useNavigate();
   return (
     <div>
 <div class="bg-light py-3 py-md-5 vh-100">
@@ -65,7 +66,7 @@ function Signup() {
             <div class="col-12">
               <hr class="mt-5 mb-4 border-secondary-subtle"/>
               <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center">
-                <a href="#!" class="link-secondary text-decoration-none">Login</a>
+                <a href="#!" class="link-secondary text-decoration-none" onClick={()=>{props.flag(true)}}>Login</a>
                 {/* <a href="#!" class="link-secondary text-decoration-none">Forgot password</a> */}
               </div>
             </div>

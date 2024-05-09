@@ -9,7 +9,7 @@ const Subheader = () => {
             <img src={BigLogo} alt="" height={80} width={120}/>
         </div> <span className='divider'></span>
         <div className="work__title">
-        Website Development Tracker
+         Productivity Tracker
         </div>
     </div>
   )

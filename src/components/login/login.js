@@ -1,13 +1,14 @@
-import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom';
 
-function Login() {
+const Login = (props) =>{
+    const navigate = useNavigate();
   return (
     <div>
-<div class="bg-light py-3 py-md-5 vh-100">
+<div class="bg-light py-3 py-md-5 vh-100 overflow-hidden">
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
-        <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+        <div class="bg-white p-4 p-md-5 rounded shadow-lg">
           <div class="row">
             <div class="col-12">
               <div class="text-center mb-5">
@@ -53,7 +54,7 @@ function Login() {
             <div class="col-12">
               <hr class="mt-5 mb-4 border-secondary-subtle"/>
               <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center">
-                <a href="#!" class="link-secondary text-decoration-none">Create new account</a>
+                <a href="#!" class="link-secondary text-decoration-none" onClick={()=>{props.flag(true)}}>Create new account</a>
                 <a href="#!" class="link-secondary text-decoration-none">Forgot password</a>
               </div>
             </div>
@@ -63,7 +64,7 @@ function Login() {
     </div>
   </div>
 </div>
-    </div>
+</div>
   )
 }
 

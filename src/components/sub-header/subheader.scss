@@ -1,7 +1,7 @@
 .sub__header{
     width: 600px;
     display: flex;
-    margin-left: 100px;
+    margin-left: 80px;
     margin-top: 80px;
     justify-content: space-between;
     align-items: center;
@@ -22,11 +22,12 @@
     }
 }
 
-@media screen and (max-width:640px) {
+@media screen and (max-width:800px) {
     .sub__header{
         flex-direction: column !important;
         width: 100% !important;
         margin-left: 0px !important;
+        margin-top: 130px;
         .divider{
          display: none !important;
         }

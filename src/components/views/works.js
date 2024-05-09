@@ -3,10 +3,10 @@ import Header from "../header/Header";
 import Sidebar from "../sidebar/Sidebar";
 import Subheader from "../sub-header/Subheader";
 import Card from "../card/Card";
+import './views.scss'
 function Works() {
   return (
-    <div>
-      <Sidebar />
+    <div className='works'>
       <Header />
       <Subheader />
       <div className="card__holder">

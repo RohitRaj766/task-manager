@@ -8,7 +8,7 @@
     top: 0;
     // left: 0;
     .img__holder{
-        height: 110px;
+        height: 90px;
         padding: 8px 0px;
         margin-top: 30px;
         cursor: pointer;
@@ -29,4 +29,23 @@
         background-color: #CC8E51;
       }
 
+}
+
+@media screen and (max-width:500px){
+    .side__bar{
+        width: 40px;
+        .img__holder{
+            height: 63px;
+            p{
+                font-size: 9px;
+            }
+            img{
+                width: 20px;
+                height: 20px;
+            }
+            hr{
+                width: 30px;
+            }  
+        }
+    }
 }

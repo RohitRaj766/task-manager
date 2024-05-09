@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./header.scss";
 import { useDispatch } from "react-redux";
 import { setSearchQuery } from "../../redux/actions";
 import Plus from "../../assets/images/plus.png";
 import Search from "../../assets/images/search.png";
 import Profile from "../../assets/images/profile.png";
-import ArrowDown from "../../assets/images/arrow-below.png";
+import Logout from "../../assets/images/logout.png";
 import Modal from "../modal/Modal";
+import "./header.scss";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Header = () => {
           <div className="search__bar">
             <input
               type="text"
-              placeholder="Search your query"
+              placeholder="Search"
               onChange={handleSearch}
             />{" "}
             <p className="search">
@@ -52,14 +52,14 @@ const Header = () => {
             className="drop__menu"
             onClick={() => setOpenDropdown(!openDropdown)}
           >
-            <img src={ArrowDown} alt="..." />
-            {openDropdown && (
+            <img src={Logout} alt="..." />
+            {/* {openDropdown && (
               <ul type="none" className="dropdown__list">
                 <li>Profile</li>
                 <li>Setting</li>
                 <li>Logout</li>
               </ul>
-            )}
+            )} */}
           </div>
         </div>
       </div>

@@ -1,0 +1,18 @@
+.works{
+    margin-left: 80px;
+    .card__holder{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: auto;
+        margin-top: 30px ;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .works{
+        margin-left:40px;
+    }
+}
